@@ -1,7 +1,48 @@
-const { jsx } = require("react/jsx-runtime");
+/**
+ * <div id="parent">
+        <div id="child">
+            <h1>Hello World</h1>
+        </div>
+    </div>
+    ---------------------------------
+    <div id="parent">
+        <div id="child">
+            <h1>Hello World</h1>
+            <h1>Hello World</h1>
+        </div>
+    </div>
+    ----------------------------------
+    <div id="parent">
+        <div id="child">
+            <h1>Hello World</h1>
+            <h1>Hello World</h1>
+        </div>
+        <div id="child">
+            <h1>Hello World</h1>
+            <h1>Hello World</h1>
+        </div>
+    </div>
 
-const h1 = React.createElement("h1", { id: "heding", className: "heading1" }, "Hello React");//It creates a javascript object
-// React.createElement() is a React method that returns a React element, which is a plain JavaScript object describing the type of element (like h1, div, or a component), its attributes (props), and its children. It does not create a real DOM element directly; instead, React uses this object to later render and update the actual DOM efficiently.
-console.log(h1)//Js object
+ * 
+ * 
+ * ReactElement(Object) => HTML(Browser Understands);
+ */
+
+// const parent = React.createElement("parent", { id: "parent" }, React.createElement("child", { id: "child" }, React.createElement("h1", {}, "hello World")));
+// const parent = React.createElement("parent", { id: "parent" }, React.createElement("child", { id: "child" }, [React.createElement("h1", {}, "hello World"),React.createElement("h1", {}, "hello World")]));
+const parent = React.createElement("div", { id: "parent" }, [
+    React.createElement("div", { id: "child" }, [
+        React.createElement("h1", {}, "hello World"),
+        React.createElement("h1", {}, "hello World"),
+    ]),
+    React.createElement("div", { id: "child2" }, [
+        React.createElement("h1", {}, "hello World"),
+        React.createElement("h1", {}, "hello World"),
+    ]),
+
+]);
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(h1); 
+
+root.render(parent); 
