@@ -1,0 +1,15 @@
+{
+  "name": "react-practice",
+  "version": "1.0.0",
+  "description": "This is Namaste React Course",
+  
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "vikas",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
