@@ -1,35 +1,7 @@
-/**
- * <div id="parent">
-        <div id="child">
-            <h1>Hello World</h1>
-        </div>
-    </div>
-    ---------------------------------
-    <div id="parent">
-        <div id="child">
-            <h1>Hello World</h1>
-            <h1>Hello World</h1>
-        </div>
-    </div>
-    ----------------------------------
-    <div id="parent">
-        <div id="child">
-            <h1>Hello World</h1>
-            <h1>Hello World</h1>
-        </div>
-        <div id="child">
-            <h1>Hello World</h1>
-            <h1>Hello World</h1>
-        </div>
-    </div>
+import React from "react";
+import ReactDOM from "react-dom/client"
 
- * 
- * 
- * ReactElement(Object) => HTML(Browser Understands);
- */
-
-// const parent = React.createElement("parent", { id: "parent" }, React.createElement("child", { id: "child" }, React.createElement("h1", {}, "hello World")));
-// const parent = React.createElement("parent", { id: "parent" }, React.createElement("child", { id: "child" }, [React.createElement("h1", {}, "hello World"),React.createElement("h1", {}, "hello World")]));
+React.createElement("child", { id: "child" }, React.createElement("h1", {}, "hello World"));
 const parent = React.createElement("div", { id: "parent" }, [
     React.createElement("div", { id: "child" }, [
         React.createElement("h1", {}, "hello World"),
