@@ -12,6 +12,9 @@ const App = () => {
     <>
     {/* component composition */}
     <Title />
+    {/* writing js inside jsx using {} => inside this we can write all js  */}
+    {Title()} 
+    <Title></Title>
       <h1>hello world</h1>
       
     </>
