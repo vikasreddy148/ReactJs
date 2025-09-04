@@ -1,20 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom/client"
-
-React.createElement("child", { id: "child" }, React.createElement("h1", {}, "hello World"));
-const parent = React.createElement("div", { id: "parent" }, [
-    React.createElement("div", { id: "child" }, [
-        React.createElement("h1", {}, "hello World"),
-        React.createElement("h1", {}, "hello World"),
-    ]),
-    React.createElement("div", { id: "child2" }, [
-        React.createElement("h1", {}, "hello World"),
-        React.createElement("h1", {}, "hello World"),
-    ]),
-
-]);
+import ReactDOM from "react-dom/client";
 
 
+const Title1 =  <h1>Im Title </h1>
+//React Functional Componets 
+const Title = () =>{
+  return <h1>Im Title </h1>
+}
+const App = () => {
+  return (
+    <>
+    {/* component composition */}
+    <Title />
+      <h1>hello world</h1>
+      
+    </>
+  );
+};
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(parent); 
+root.render(<App />);
