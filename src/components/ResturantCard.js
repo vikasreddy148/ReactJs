@@ -1,24 +1,23 @@
-const ResturantCard = (props) => {
-  const { resData } = props;
-  const { info, distance } = resData;
-  const { name } = resData.info;
-  const { url } = resData.info.image;
-  const { rating } = resData.info.ratingNew.ratings.DINING;
-  const { cft, cfo } = info;
+const ResturantCard = ({ resData }) => {
+  // Destructure the individual properties you need from `resData`
+  const { name, cloudinaryImageId, cuisines, avgRatingString, costForTwo } = resData;
 
   return (
     <div className="res-card">
       <div className="res-img">
-        <img alt="res image" className="res-logo" src={url} />
+        <img
+        alt="restaurant-logo"
+        className="res-logo"
+        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
+      />
       </div>
+      
       <h3>{name}</h3>
-      <h4></h4>
-      <h5>{rating}</h5>
-      <h5>{cfo.text}</h5>
-      <h5>{cft.text}</h5>
-
-      <h5>{distance}</h5>
+      <h4>{cuisines.join(", ")}</h4>
+      <h5>{avgRatingString} stars</h5>
+      <h5>{costForTwo}</h5>
     </div>
   );
 };
+
 export default ResturantCard;

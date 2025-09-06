@@ -31,9 +31,10 @@
     cursor: pointer;
 }
 .res-container{
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    
 }
 .search{
     padding: 10px;
@@ -45,4 +46,22 @@
 }
 .res-img{
     height: 170px;
+}
+.btn-login{
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ul{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.shimmerUI{
+    background-color: #f0f0f0;
+    width: 220px;
+    margin: 5px;
+    padding: 5px;
+    height: 400px;
 }
