@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ResturantCard from "./ResturantCard";
 import ShimmerUi from "./ShimmerUi";
+import { Link } from "react-router";
 
 const Body = () => {
   const [resturantList, setResturantList] = useState([]);
@@ -29,11 +30,16 @@ const Body = () => {
               cardItem.card && cardItem.card.card && cardItem.card.card.info
           )
           .map((cardItem) => cardItem.card.card.info);
+          
 
         setResturantList(infoList);
         setCopyResturantList(infoList);
         console.log(infoList);
       }
+
+    //  setCopyResturantList(cardInfo);
+    //  setResturantList(cardInfo);
+     console.log(cardInfo);
     } catch (error) {
       console.log("Failed to fetch data:", error); // Add a more descriptive error message
     }
@@ -92,7 +98,10 @@ if(resturantList.length==0) {
       </div>
       <div className="res-container">
         {copyResturantList.map((resturant) => (
-          <ResturantCard key={resturant?.id} resData={resturant} />
+          <Link to={"resturants/"+ resturant?.id} key={resturant?.id}>
+          <ResturantCard  resData={resturant} />
+          </Link>
+          
         ))}
       </div>
     </div>
