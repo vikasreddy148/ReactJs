@@ -65,3 +65,11 @@ align-items: center;
     padding: 5px;
     height: 400px;
 }
+
+.user{
+    border: 2px solid black;
+    margin: 10px;
+    padding: 20px;
+    width: 800px;
+    
+}

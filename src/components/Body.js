@@ -37,9 +37,6 @@ const Body = () => {
         console.log(infoList);
       }
 
-    //  setCopyResturantList(cardInfo);
-    //  setResturantList(cardInfo);
-     console.log(cardInfo);
     } catch (error) {
       console.log("Failed to fetch data:", error); // Add a more descriptive error message
     }
