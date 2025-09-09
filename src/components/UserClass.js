@@ -7,8 +7,9 @@ class UserClass extends React.Component {
             user : {}
         }
     }
+    
     async componentDidMount(){
-        console.log("User Class componentDidMount called");
+    console.log("User Class componentDidMount called");
         
     const URL = "https://api.github.com/users/vikasreddy148";
     const response = await fetch(URL);
@@ -16,12 +17,20 @@ class UserClass extends React.Component {
     this.setState({
         user : json
     })
+
+    this.interval = setInterval(()=>{
+      console.log("setInterval called")
+    },[1000])
     
+  }
+  componentWillUnmount(){
+    clearInterval(this.interval);
+    console.log("setInterval cleared");
   }
   
   render() {
-
-    const {name,login,location,avatar_url,email} = this.state.user;
+    
+    const {name,login,location,avatar_url} = this.state.user;
     console.log(name,login,location,avatar_url);
 
   
