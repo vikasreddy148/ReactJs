@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ResturantCard from "./ResturantCard";
+import ResturantCard, { withPromotedLabel } from "./ResturantCard";
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -10,7 +10,8 @@ const Body = () => {
   const [resSearch, setResSearch] = useState("");
   const onlineStatus = useOnlineStatus();
   const resturantList = useResturantList();
-
+  const ResturantCardPromoted = withPromotedLabel(ResturantCard);
+  console.log(resturantList);
   useEffect(() => {
     setCopyResturantList(resturantList);
   }, [resturantList]);
@@ -82,8 +83,9 @@ const Body = () => {
       <div className="flex flex-wrap p-2 m-2">
         {copyResturantList.map((resturant) => (
           <Link to={"resturants/" + resturant?.id} key={resturant?.id}>
-            <ResturantCard resData={resturant} />
-          </Link>
+            { resturant.promoted?  <ResturantCardPromoted resData={resturant}/> : <ResturantCard resData={resturant} />  }
+            
+          </Link> 
         ))}
       </div>
     </div>
