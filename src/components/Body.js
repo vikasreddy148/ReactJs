@@ -11,7 +11,7 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   const resturantList = useResturantList();
   const ResturantCardPromoted = withPromotedLabel(ResturantCard);
-  console.log(resturantList);
+  // console.log(resturantList);
   useEffect(() => {
     setCopyResturantList(resturantList);
   }, [resturantList]);
@@ -25,7 +25,7 @@ const Body = () => {
   if (resturantList.length == 0) {
     return (
       <>
-        <div className="res-container" style={{ height: "379px" }}>
+        <div className="flex flex-wrap">
           <ShimmerUi />
           <ShimmerUi />
           <ShimmerUi />
@@ -36,8 +36,7 @@ const Body = () => {
           <ShimmerUi />
           <ShimmerUi />
           <ShimmerUi />
-          <ShimmerUi />
-          <ShimmerUi />
+          
         </div>
       </>
     );
