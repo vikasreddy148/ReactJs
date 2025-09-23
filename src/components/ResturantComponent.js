@@ -8,7 +8,7 @@ const ResturantComponent = () => {
   const [filteredItemList, setFilteredItemList] = useState(null);
   const { resId } = useParams();
   const json = useResturantMenu(resId);
-
+  const [showIndex, setShowIndex] = useState(null);
   // console.log(json);
 
   const cardInfo = json?.data?.cards?.find((c) => c?.card?.card?.info);
@@ -49,8 +49,15 @@ const ResturantComponent = () => {
             <p className="p-1 font-serif"> Locality : {resInfo.locality}</p>
           </div>
         </div>
-        {filteredItemList.map((category)=>{
-          return <ResturantMenuItems key = {category?.card?.card?.title} itemList={category} />
+        {filteredItemList.map((category,index)=>{
+          return (
+            <ResturantMenuItems
+              key={category?.card?.card?.title}
+              itemList={category}
+              showItems={index === showIndex }
+              setShowIndex={() => setShowIndex(index === showIndex ? null : index)}
+            />
+          );
         })
         
         }

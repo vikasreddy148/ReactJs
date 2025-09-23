@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+
 import ItemList from "./ItemList";
 
-function ResturantMenuItems({itemList}) {
-  const [showItems, setShowItems] = useState(false);
+function ResturantMenuItems({itemList , showItems , setShowIndex}) {
+  
 
   const handleClick = () => {
-    setShowItems(!showItems);
+    
+      setShowIndex();
+    
   };
 
 
