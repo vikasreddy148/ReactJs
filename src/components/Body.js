@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ResturantCard, { withPromotedLabel } from "./ResturantCard";
 import ShimmerUi from "./ShimmerUi";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useResturantList from "../utils/useResturantList";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [copyResturantList, setCopyResturantList] = useState([]);
@@ -11,7 +12,8 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
   const resturantList = useResturantList();
   const ResturantCardPromoted = withPromotedLabel(ResturantCard);
-  // console.log(resturantList);
+  const {loggedInUser,setUserName} =useContext(UserContext)
+  
   useEffect(() => {
     setCopyResturantList(resturantList);
   }, [resturantList]);
@@ -77,6 +79,13 @@ const Body = () => {
          <div className="">
           
         <button className=" px-4 py-2 bg-green-100 m-4 cursor-pointer rounded-lg"onClick={handleClick}>Top Rated Resturatnts </button>
+        </div>
+
+        <div className="border border-solid border-black">
+      <input type="text" value = {loggedInUser} onChange={(e)=>{
+            setUserName(e.target.value);
+      }}/>    
+      
         </div>
       </div>
       <div className="flex flex-wrap p-2 m-2">

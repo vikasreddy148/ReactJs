@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+
 const ResturantCard = ({ resData }) => {
   // Destructure the individual properties you need from `resData`
   const { name, cloudinaryImageId, cuisines, avgRatingString, costForTwo } = resData;
-
+  const {loggedInUser}= useContext(UserContext)
   return (
     <div className="m-4 p-4 w-[250px] h-[450px] bg-gray-100 rounded-lg hover:bg-gray-200">
       <div className="res-img">
@@ -16,6 +19,7 @@ const ResturantCard = ({ resData }) => {
       <h4>{cuisines.join(", ")}</h4>
       <h5>{avgRatingString} stars</h5>
       <h5>{costForTwo}</h5>
+      <h6>Logged in user : {loggedInUser}</h6>
     </div>
   );
 };
