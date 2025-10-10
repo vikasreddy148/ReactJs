@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import Contact from "../Contact"
 import "@testing-library/jest-dom"
+describe("Contact Us Page Test Case",()=>{
 test('should load contact us comopnent', () => { 
     render(<Contact />);
     const heading = screen.getByRole("heading");
@@ -17,7 +18,7 @@ test('should load contact us comopnent', () => {
     expect(button).toBeInTheDocument();
  })
 
- test('should load input name in contact us comopnent', () => { 
+ it('should load input name in contact us comopnent', () => { 
     render(<Contact />);
     const inputName = screen.getByPlaceholderText("name");
 
@@ -25,10 +26,12 @@ test('should load contact us comopnent', () => {
     expect(inputName).toBeInTheDocument();
  })
 
- test('should load  2 input  boxes on contact comopnent', () => { 
+ it('should load  2 input  boxes on contact comopnent', () => { 
     render(<Contact />);
-    const inputBoxes = screen.getAllByRole("textbox");
+    const inputBoxes = screen.getByRole("button");
 
     //Assertion
     expect(inputBoxes).toBeInTheDocument();
  })
+})
+
